@@ -46,7 +46,7 @@ router.post('/', (req, res, next) => {
         
         <br>
         <div
-        style="background:url(https://s3.ap-south-1.amazonaws.com/www.manjeet-weds-khushi.com/images/img_bg_1.jpg);background-size: 100% auto;background-position: center;padding: 100px;
+        style="background:url(https://s3.ap-south-1.amazonaws.com/www.manjeet-weds-khushi.com/images/img_bg_1.jpg);background-size: cover;background-position: center;padding: 50px;
         background-repeat:no-repeat;        ">
         <div style="
         font-size: 30px;
