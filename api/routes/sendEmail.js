@@ -45,7 +45,7 @@ router.post('/', (req, res, next) => {
         </p>
         
         <br>
-        <img src=${userDetail.cardImage}/>`
+        <img src="${userDetail.cardImage}"/>`
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
