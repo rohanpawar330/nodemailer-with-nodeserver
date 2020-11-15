@@ -46,9 +46,10 @@ router.post('/', (req, res, next) => {
         
         <br>
         <div
-        style="background:url(https://s3.ap-south-1.amazonaws.com/www.manjeet-weds-khushi.com/images/img_bg_1.jpg);height: 50vh;width: 100%;background-size: contain;background-repeat: no-repeat;">
+        style="background:url(https://s3.ap-south-1.amazonaws.com/www.manjeet-weds-khushi.com/images/img_bg_1.jpg);background-size: 100% auto;background-position: center;padding: 100px;
+        background-repeat:no-repeat;        ">
         <div style="
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 600;
         color: white;
         font-family: cursive;
@@ -58,7 +59,7 @@ router.post('/', (req, res, next) => {
         text-align: center;
     ">${userDetail.emailSubject}</div>
         <div style="
-        font-size: 25px;
+        font-size: 30px;
         font-weight: 600;
         color: white;
         font-family: cursive;
@@ -66,6 +67,7 @@ router.post('/', (req, res, next) => {
         bottom: 40%;
         width: 100%;
         text-align: center;
+        padding-top: 50px;
     ">${userDetail.weddingDate} ${userDetail.address}</div>
 </div>
 
