@@ -45,7 +45,7 @@ router.post('/', (req, res, next) => {
         </p>
         
         <br>
-        <img src="${userDetail.cardImage}"/>`
+        <img src="https://s3.ap-south-1.amazonaws.com/+${userDetail.cardImage}"/>`
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
