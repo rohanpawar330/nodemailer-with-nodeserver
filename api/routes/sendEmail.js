@@ -11,7 +11,7 @@ router.post('/', (req, res, next) => {
         emailFrom: req.body.emailFrom,
         emailSubject: req.body.emailSubject,
         weddingDate: req.body.weddingDate,
-        cardImage: req.body.cardImage
+        address: req.body.address
     };
     var transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -45,7 +45,31 @@ router.post('/', (req, res, next) => {
         </p>
         
         <br>
-        <img src="https://s3.ap-south-1.amazonaws.com/+${userDetail.cardImage}"/>`
+        <div
+        style="background:url(https://s3.ap-south-1.amazonaws.com/www.manjeet-weds-khushi.com/images/img_bg_1.jpg);height: 50vh;width: 100%;background-size: contain;background-repeat: no-repeat;">
+        <div style="
+        font-size: 25px;
+        font-weight: 600;
+        color: white;
+        font-family: cursive;
+        position: absolute;
+        top: 5%;
+        width: 100%;
+        text-align: center;
+    ">${userDetail.emailSubject}</div>
+        <div style="
+        font-size: 25px;
+        font-weight: 600;
+        color: white;
+        font-family: cursive;
+        position: absolute;
+        bottom: 40%;
+        width: 100%;
+        text-align: center;
+    ">${userDetail.weddingDate} ${userDetail.address}</div>
+</div>
+
+        `
     };
 
     transporter.sendMail(mailOptions, function (error, info) {
