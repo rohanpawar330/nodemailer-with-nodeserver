@@ -10,7 +10,8 @@ router.post('/', (req, res, next) => {
         email: req.body.email,
         emailFrom: req.body.emailFrom,
         emailSubject: req.body.emailSubject,
-        weddingDate: req.body.weddingDate
+        weddingDate: req.body.weddingDate,
+        cardImage: req.body.cardImage
     };
     var transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -34,36 +35,18 @@ router.post('/', (req, res, next) => {
         to: userDetail.email,
         subject: userDetail.emailSubject,
         // text: `Hi, Thank you for your response.`,
-
+        html: `<h2><span style="font-size:16px">Hi</sapn> ${userDetail.name.split(" ")[0]}</h2><br>
+        <p>
+        Please join us in the celebration of our wedding,
+         which will happen on ${userDetail.weddingDate}.
+          We hope you will grant us with your presence,
+           and we would be really happy to see you on our special day.
+            All the prayers are welcome!
+        </p>
+        
+        <br>
+        <img src=${userDetail.cardImage}/>`
     };
-    if (userDetail.emailFrom == 'manjeetwedskhushi@gmail.com') {
-        mailOptions.html =
-            `<h2><span style="font-size:16px">Hi</sapn> ${userDetail.name.split(" ")[0]}</h2><br>
-    <p>
-    Please join us in the celebration of our wedding,
-     which will happen on ${userDetail.weddingDate}.
-      We hope you will grant us with your presence,
-       and we would be really happy to see you on our special day.
-        All the prayers are welcome!
-    </p>
-    
-    <br>
-    <img src="https://s3.ap-south-1.amazonaws.com/www.manjeet-weds-khushi.com/images/email-img.png"/>`
-    } else {
-        mailOptions.html =
-            `<h2><span style="font-size:16px">Hi</sapn> ${userDetail.name.split(" ")[0]}</h2><br>
-<p>
-Please join us in the celebration of our wedding,
- which will happen on ${userDetail.weddingDate}.
-  We hope you will grant us with your presence,
-   and we would be really happy to see you on our special day.
-    All the prayers are welcome!
-</p>
-
-<br>
-<img src="https://s3.ap-south-1.amazonaws.com/www.sanchit-weds-sagarika.com/images/email-img.png"/>`
-
-    }
 
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
